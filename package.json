@@ -2,6 +2,7 @@
   "name": "cookbook",
   "private": false,
   "version": "1.0.0",
+  "homepage": "https://odesrochers.github.io/cookbook/",
   "type": "module",
   "scripts": {
     "dev": "vite",
