@@ -1,93 +1,94 @@
 import { useState } from "react";
 
-import ProjectsSidebar from "./components/ProjectsSidebar";
-import NewProject from "./components/NewProject";
-import NoProjectSelected from "./components/NoProjectSelected";
-import SelectedProject from "./components/SelectedProject";
+import RecipesSidebar from "./components/RecipesSidebar";
+import NewRecipe from "./components/NewRecipe";
+import NoRecipeSelected from "./components/NoRecipeSelected";
+import SelectedRecipe from "./components/SelectedRecipe";
+import recipes from "./assets/RecipesData";
 
 function App() {
-  const [projectsState, setProjectsState] = useState({
-    selectedProjectId: undefined,
-    projects: [],
+  const [recipesState, setRecipesState] = useState({
+    selectedRecipeId: undefined,
+    recipes: recipes,
   });
 
-  function handleSelectProject(id) {
-    setProjectsState((prevState) => {
+  function handleSelectRecipe(id) {
+    setRecipesState((prevState) => {
       return {
         ...prevState,
-        selectedProjectId: id,
+        selectedRecipeId: id,
       };
     });
   }
 
-  function handleStartAddProject() {
-    setProjectsState((prevState) => {
+  function handleStartAddRecipe() {
+    setRecipesState((prevState) => {
       return {
         ...prevState,
-        selectedProjectId: null,
+        selectedRecipeId: null,
       };
     });
   }
 
-  function handleAddProject(projectData) {
-    setProjectsState((prevState) => {
-      const projectId = Math.random();
-      const newProject = {
-        ...projectData,
-        id: projectId,
+  function handleAddRecipe(recipeData) {
+    setRecipesState((prevState) => {
+      const recipeId = Math.random();
+      const newRecipe = {
+        ...recipeData,
+        id: recipeId,
       };
       return {
         ...prevState,
-        selectedProjectId: projectId,
-        projects: [...prevState.projects, newProject],
-      };
-    });
-  }
-
-  function handleCancelAddProject() {
-    setProjectsState((prevState) => {
-      return {
-        ...prevState,
-        selectedProjectId: undefined,
+        selectedRecipeId: recipeId,
+        recipes: [...prevState.recipes, newRecipe],
       };
     });
   }
 
-  function handleDeleteProject() {
-    setProjectsState((prevState) => {
+  function handleCancelAddRecipe() {
+    setRecipesState((prevState) => {
       return {
         ...prevState,
-        selectedProjectId: undefined,
-        projects: prevState.projects.filter(
-          (project) => project.id !== prevState.selectedProjectId
+        selectedRecipeId: undefined,
+      };
+    });
+  }
+
+  function handleDeleteRecipe() {
+    setRecipesState((prevState) => {
+      return {
+        ...prevState,
+        selectedRecipeId: undefined,
+        recipes: prevState.recipes.filter(
+          (recipe) => recipe.id !== prevState.selectedRecipeId
         ),
       };
     });
   }
 
-  const selectedProject = projectsState.projects.find(
-    (project) => project.id === projectsState.selectedProjectId
+  const selectedRecipe = recipesState.recipes.find(
+    (recipe) => recipe.id === recipesState.selectedRecipeId
   );
 
   let content = (
-    <SelectedProject project={selectedProject} onDelete={handleDeleteProject} />
+    <SelectedRecipe recipe={selectedRecipe} onDelete={handleDeleteRecipe} />
   );
 
-  if (projectsState.selectedProjectId === null) {
+  if (recipesState.selectedRecipeId === null) {
     content = (
-      <NewProject onAdd={handleAddProject} onCancel={handleCancelAddProject} />
+      <NewRecipe onAdd={handleAddRecipe} onCancel={handleCancelAddRecipe} />
     );
-  } else if (projectsState.selectedProjectId === undefined) {
-    content = <NoProjectSelected onStartAddProject={handleStartAddProject} />;
+  } else if (recipesState.selectedRecipeId === undefined) {
+    content = <NoRecipeSelected onStartAddRecipe={handleStartAddRecipe} />;
   }
 
   return (
     <main className="flex h-screen my-8 gap-8">
-      <ProjectsSidebar
-        onStartAddProject={handleStartAddProject}
-        projects={projectsState.projects}
-        onSelectProject={handleSelectProject}
-        selectedProjectId={projectsState.selectedProjectId}
+      <RecipesSidebar
+        onStartAddRecipe={handleStartAddRecipe}
+        recipes={recipesState.recipes}
+        onSelectRecipe={handleSelectRecipe}
+        selectedRecipeId={recipesState.selectedRecipeId}
       />
       {content}
     </main>

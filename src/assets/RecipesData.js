@@ -1,0 +1,60 @@
+const recipes = [
+  {
+    id: "f94e5c8b-b87c-4d7a-a9bc-b17cc394212a",
+    title: "Boeuf Braisé aux Oignons",
+    source:
+      "https://www.ricardocuisine.com/recettes/6438-boeuf-braise-aux-oignons",
+    ingredients: [
+      "1 rôti de palette de boeuf d'environ 1 kg (2,2 lb) avec os",
+      "30 ml (2 c. à soupe) d'huile d'olive",
+      "3 oignons, hachés finement",
+      "2 gousses d'ail, hachées finement",
+      "250 ml (1 tasse) de bouillon de bœuf ou de poulet",
+      "6 carottes moyennes, pelées et coupées en tronçons",
+      "Sel et poivre",
+    ],
+    instructions: [
+      "Placer la grille au centre du four. Préchauffer le four à 165°C (325°F).",
+      "Dans une grande poêle, dorer la viande des deux côtés dans l'huile. Saler et poivrer. Placer dans un plat de cuisson.",
+      "Dans la même poêle, dorer les oignons dans l'huile. Saler et poivrer. Ajouter l'ail et cuire 1 minute.",
+      "Déglacer avec le bouillon. Porter à ébullition et verser sur le rôti. Placer les carottes autour du rôti.",
+      "Couvrir de papier d'aluminium et cuire au four 3 heures ou jusqu'à ce que la viande soit tendre à la fourchette.",
+      "Délicieux avec une purée de pommes de terre, du riz, des pâtes ou en salade avec des haricots blancs et des tomates.",
+    ],
+  },
+  {
+    id: "c5376a6b-d124-471b-8777-38b3e9b7c0b2",
+    title: "Côtelettes de Porc à la Poêle Juteuses",
+    source: "https://www.inspiredtaste.net/37062/juicy-skillet-pork-chops/",
+    ingredients: [
+      "4 côtelettes de porc, environ 170 g chacune, d'une épaisseur de 2,5 cm",
+      "Sel, au goût",
+      "1 cuillère à soupe de farine tout usage",
+      "1 cuillère à café de chili en poudre",
+      "1 cuillère à café de poudre d'ail",
+      "1 cuillère à café de poudre d'oignon",
+      "1/2 cuillère à café de paprika fumé",
+      "1/2 cuillère à café de poivre noir moulu",
+      "1 cuillère à soupe d'huile d'avocat ou d'huile végétale",
+      "Sauce : 1 tasse de bouillon de poulet à faible teneur en sodium",
+      "1 cuillère à soupe de vinaigre de cidre de pomme",
+      "2 cuillères à café de miel ou de sucre brun",
+      "1 cuillère à soupe de beurre",
+      "2 cuillères à soupe de persil frais haché, facultatif",
+    ],
+    instructions: [
+      "Sortir les côtelettes de porc du réfrigérateur et assaisonner les deux côtés avec du sel. Laisser reposer les côtelettes pendant 30 minutes.",
+      "Pendant ce temps, préparer le mélange d'épices. Dans un petit bol, mélanger la farine, le chili en poudre, la poudre d'ail, la poudre d'oignon, le paprika fumé et le poivre noir.",
+      "Après 30 minutes, sécher les côtelettes avec un essuie-tout, puis les frotter des deux côtés avec le mélange d'épices.",
+      "Faire chauffer l'huile dans une poêle (avec un couvercle) à feu moyen-vif. Lorsque l'huile est chaude, ajouter les côtelettes de porc. Cuire jusqu'à ce qu'elles soient dorées, environ 2 à 3 minutes.",
+      "Retourner les côtelettes pour que le côté doré soit vers le haut. Si l'une des côtelettes a plus de gras, utilisez des pinces pour maintenir ce côté en bas jusqu'à ce qu'il grésille et brunit légèrement, environ 30 secondes.",
+      "Réduire la chaleur à feu doux, puis couvrir la poêle avec un couvercle. Cuire pendant 6 à 12 minutes jusqu'à ce que la température interne atteigne 63°C.",
+      "Transférer les côtelettes sur une assiette et couvrir légèrement avec du papier d'aluminium. Laisser reposer les côtelettes pendant 5 minutes.",
+      "Pour la sauce, augmenter la chaleur à feu moyen-vif, puis ajouter le bouillon de poulet, le vinaigre et le miel. Porter à ébullition et réduire de moitié, en grattant le fond de la poêle pour libérer les morceaux de viande collés.",
+      "Une fois la sauce réduite, ajouter le beurre et ajuster l'assaisonnement si nécessaire.",
+      "Remettre les côtelettes dans la poêle, verser un peu de sauce dessus et parsemer de persil frais. Servir.",
+    ],
+  },
+];
+
+export default recipes;

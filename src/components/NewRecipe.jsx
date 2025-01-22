@@ -3,22 +3,30 @@ import { useRef } from "react";
 import Input from "./Input";
 import Modal from "./Modal";
 
-export default function NewProject({ onAdd, onCancel }) {
+export default function NewRecipe({ onAdd, onCancel }) {
   const modal = useRef();
 
   const title = useRef();
-  const description = useRef();
-  const dueDate = useRef();
+  const source = useRef();
+  const ingredients = useRef();
+  const instructions = useRef();
 
   function handleSave() {
     const enteredTitle = title.current.value;
-    const enteredDescription = description.current.value;
-    const enteredDueDate = dueDate.current.value;
+    const enteredSource = source.current.value;
+    const enteredIngredients = ingredients.current.value
+      .split("\n")
+      .map((item) => item.trim())
+      .filter((item) => item !== "");
+    const enteredInstructions = instructions.current.value
+      .split("\n")
+      .map((step) => step.trim())
+      .filter((step) => step !== "");
 
     if (
       enteredTitle.trim() === "" ||
-      enteredDescription.trim() === "" ||
-      enteredDueDate.trim() === ""
+      enteredIngredients.length === 0 ||
+      enteredInstructions.length === 0
     ) {
       modal.current.open();
       return;
@@ -26,8 +34,9 @@ export default function NewProject({ onAdd, onCancel }) {
 
     onAdd({
       title: enteredTitle,
-      description: enteredDescription,
-      dueDate: enteredDueDate,
+      source: enteredSource,
+      ingredients: enteredIngredients,
+      instructions: enteredInstructions,
     });
   }
 
@@ -42,7 +51,7 @@ export default function NewProject({ onAdd, onCancel }) {
           Please make sure you provide a valid value for every input field.
         </p>
       </Modal>
-      <div className="w-[35rem] mt-16">
+      <div className="w-[35rem] mt-16 mr-3">
         <menu className="flex items-center justify-end gap-4 my-4">
           <li>
             <button
@@ -62,9 +71,18 @@ export default function NewProject({ onAdd, onCancel }) {
           </li>
         </menu>
         <div>
-          <Input type="text" ref={title} label="Title" />
-          <Input ref={description} label="Description" textarea />
-          <Input type="date" ref={dueDate} label="Due Date" />
+          <Input type="text" ref={title} label="Recipe Title" />
+          <Input type="text" ref={source} label="Recipe Source" />
+          <Input
+            ref={ingredients}
+            label="Ingredients (one per line)"
+            textarea
+          />
+          <Input
+            ref={instructions}
+            label="Instructions (one step per line)"
+            textarea
+          />
         </div>
       </div>
     </>
