@@ -1,3 +1,5 @@
+import IngredientsList from "./IngredientsList";
+
 export default function SelectedRecipe({ recipe, onDelete }) {
   return (
     <div className="w-[75rem] mt-16 mr-3">
@@ -18,17 +20,15 @@ export default function SelectedRecipe({ recipe, onDelete }) {
         <h2 className="text-xl font-semibold text-stone-500 mt-4 mb-2">
           Ingredients
         </h2>
-        <ul className="list-disc list-inside text-stone-600">
-          {recipe.ingredients.map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
-          ))}
-        </ul>
+        <IngredientsList ingredients={recipe.ingredients} />
         <h2 className="text-xl font-semibold text-stone-500 mt-8 mb-2">
           Instructions
         </h2>
         <ol className="list-decimal list-inside text-stone-600">
           {recipe.instructions.map((step, index) => (
-            <li key={index}>{step}</li>
+            <li className="mb-3" key={index}>
+              {step}
+            </li>
           ))}
         </ol>
         <a
