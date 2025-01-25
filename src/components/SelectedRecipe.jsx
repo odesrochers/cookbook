@@ -1,6 +1,6 @@
 import IngredientsList from "./IngredientsList";
 
-export default function SelectedRecipe({ recipe, onDelete }) {
+export default function SelectedRecipe({ recipe, onDelete, onCheckboxChange }) {
   return (
     <div className="w-[75rem] mt-16 mr-3">
       <header className="pb-4 mb-4 border-b-2 border-stone-300">
@@ -20,7 +20,7 @@ export default function SelectedRecipe({ recipe, onDelete }) {
         <h2 className="text-xl font-semibold text-stone-500 mt-4 mb-2">
           Ingredients
         </h2>
-        <IngredientsList ingredients={recipe.ingredients} />
+        <IngredientsList recipe={recipe} onCheckboxChange={onCheckboxChange} />
         <h2 className="text-xl font-semibold text-stone-500 mt-8 mb-2">
           Instructions
         </h2>
