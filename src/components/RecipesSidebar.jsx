@@ -8,7 +8,7 @@ export default function RecipesSidebar({
   selectedRecipeId,
 }) {
   return (
-    <aside className="w-1/3 bg-gray-800 text-stone-50 px-8 py-16 rounded-r-xl md:w-72">
+    <aside className="w-1/3 bg-gray-800 text-stone-50 h-full px-8 py-16 rounded-r-xl md:w-72">
       <h2 className="uppercase md:text-xl font-bold mb-8">My Recipes</h2>
       <Button onClick={onStartAddRecipe}>+ Add Recipe</Button>
       <ul className="mt-8">

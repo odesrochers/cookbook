@@ -12,6 +12,8 @@ function App() {
     recipes: [],
   });
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
   // Programmatically initialize selectedIngredients when the component mounts
   useEffect(() => {
     // Initialize selectedIngredients for each recipe
@@ -131,14 +133,29 @@ function App() {
     content = <NoRecipeSelected onStartAddRecipe={handleStartAddRecipe} />;
   }
 
+  const sidebarMargin = isSidebarOpen ? "" : "ml-10"; // Set margin based on sidebar visibility
+
   return (
-    <main className="flex h-screen my-8 gap-8">
-      <RecipesSidebar
-        onStartAddRecipe={handleStartAddRecipe}
-        recipes={recipesState.recipes}
-        onSelectRecipe={handleSelectRecipe}
-        selectedRecipeId={recipesState.selectedRecipeId}
-      />
+    <main
+      className={`flex h-screen my-8 gap-8 transition-all duration-300 ${sidebarMargin}`}
+    >
+      <button
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        className="md:hidden text-black bg-white p-3 fixed top-4 left-4 z-50 rounded-md shadow-lg"
+        aria-label="Toggle Sidebar"
+      >
+        {isSidebarOpen ? "✖" : "☰"}
+      </button>
+
+      {isSidebarOpen && (
+        <RecipesSidebar
+          onStartAddRecipe={handleStartAddRecipe}
+          recipes={recipesState.recipes}
+          onSelectRecipe={handleSelectRecipe}
+          selectedRecipeId={recipesState.selectedRecipeId}
+        />
+      )}
+
       {content}
     </main>
   );
